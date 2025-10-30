@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kishore Jaganathan | Cybersecurity Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at center, #0a0f1c, #000);
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 🔹 Live Background Animation */
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 6rem 1rem 3rem;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      color: #00ffff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    h2 {
+      color: #fff;
+      font-weight: 400;
+      margin-top: 0.5rem;
+      opacity: 0.85;
+    }
+
+    .btns {
+      margin-top: 1.5rem;
+    }
+
+    .btns a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border: 1px solid #00ffff;
+      color: #00ffff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .btns a:hover {
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,255,255,0.2);
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    section h3 {
+      color: #00ffff;
+      font-family: 'Orbitron';
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    ul { list-style: none; line-height: 1.8; }
+
+    footer {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      section { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header>
+    <h1>KISHORE JAGANATHAN</h1>
+    <h2>Cybersecurity Analyst | Ethical Hacker | IT Support</h2>
+    <div class="btns">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h3>About Me</h3>
+    <p>
+      Passionate cybersecurity enthusiast with strong foundations in threat analysis,
+      incident response, and network defense. Dedicated to learning and implementing
+      advanced security techniques to protect organizations from evolving cyber threats.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h3>Skills & Tools</h3>
+    <ul>
+      <li>🔹 Cybersecurity: Threat Hunting, SIEM, IDS/IPS, Incident Response</li>
+      <li>🔹 Tools: Splunk, Nmap, Wireshark, Nessus, Burp Suite, Snort</li>
+      <li>🔹 OS: Kali Linux, Ubuntu, Windows</li>
+      <li>🔹 Scripting: Python, Bash</li>
+      <li>🔹 Networking: TCP/IP, Firewalls, VPN, Packet Analysis</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h3>Projects / Labs</h3>
+    <ul>
+      <li>🧠 <b>Network Scanning with Nmap</b> — Discovered open ports & analyzed services.</li>
+      <li>🧩 <b>Incident Detection with Splunk</b> — Correlated brute-force events & alerts.</li>
+      <li>🔐 <b>TryHackMe Labs</b> — Linux Fundamentals, Nmap, Hash Cracking, SIEM Basics.</li>
+    </ul>
+  </section>
+
+  <section id="certs">
+    <h3>Certifications</h3>
+    <ul>
+      <li>🎓 CEH (Certified Ethical Hacker) – In Progress</li>
+      <li>🎓 TryHackMe & HackTheBox Labs – Ongoing</li>
+      <li>🎓 CompTIA Security+ – Planned (2026)</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:kishorejagan3010@gmail.com">kishorejagan3010@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/kishore-jaganathan" target="_blank">linkedin.com/in/kishore-jaganathan</a></p>
+  </section>
+
+  <footer>© 2025 Kishore Jaganathan | Cybersecurity Portfolio</footer>
+
+  <!-- 🟢 Background Animation -->
+  <script>
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let w, h, particles;
+
+    function init() {
+      w = canvas.width = innerWidth;
+      h = canvas.height = innerHeight;
+      particles = Array.from({ length: 80 }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2,
+        dx: (Math.random() - 0.5) * 0.7,
+        dy: (Math.random() - 0.5) * 0.7,
+      }));
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = '#00ffff';
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx; p.y += p.dy;
+
+        if (p.x < 0 || p.x > w) p.dx *= -1;
+        if (p.y < 0 || p.y > h) p.dy *= -1;
+      });
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', init);
+    init(); draw();
+  </script>
+</body>
+</html>
